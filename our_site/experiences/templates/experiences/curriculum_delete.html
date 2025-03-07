@@ -1,0 +1,17 @@
+{% extends "experiences/curriculum_base.html" %}
+
+{% block title %}
+    Delete {{ curriculum }}
+{% endblock %}
+
+{% block content %}
+<h2>Delete {{ curriculum }}</h2>
+
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete {{ curriculum }}?</p>
+    <input type="submit" value="Confirm" />
+</form>
+
+<a href={% url "experiences:curriculum_detail" curriculum.pk %}>Cancel</a>
+
+{% endblock %}

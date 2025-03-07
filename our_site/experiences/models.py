@@ -122,4 +122,13 @@ class Badges(models.Model):
     def image_tag(self):
         return format_html('<img src="{}" style="max-width: 100px; max-height: 100px;" />', self.image.url)
 
-    
+class Curriculum(models.Model):
+    title = models.CharField(max_length=100, unique=True)  # Unique title for the Curriculum
+    description = models.TextField(blank=True)  # Optional description
+    is_active = models.BooleanField(default=True)  # Whether the Curriculum is active
+
+    class Meta:
+        verbose_name_plural = "Curricula"
+
+    def __str__(self):
+        return self.title

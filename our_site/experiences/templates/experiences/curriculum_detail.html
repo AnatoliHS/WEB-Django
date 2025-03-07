@@ -1,0 +1,30 @@
+{% extends "experiences/curriculum_base.html" %}
+
+{% block title %}
+    {{ curriculum }}
+{% endblock %}
+
+{% block content %}
+    <h2><a href={% url "experiences:curriculum_list" %}>Curriculum</a></h2>
+    <h3>{{ curriculum }} | <a href={% url "experiences:curriculum_update" curriculum.pk %}>Update</a></h3>   
+<hr>        
+        <ul style="--lis: none;">
+            
+                <li>
+                    : {{ curriculum.title }}
+                </li>
+            
+                <li>
+                    : {{ curriculum.description }}
+                </li>
+            
+                <li>
+                    : {{ curriculum.is_active }}
+                </li>
+            
+        </ul>
+    <form style="display:inline;" action={% url "experiences:curriculum_delete" curriculum.pk %} method="post" onsubmit="return confirm('Are you sure you want to delete {{ curriculum }}?')">{% csrf_token %}
+        
+    </form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "experiences/curriculum_base.html" %}
+
+{% block title %}
+    Curricula
+{% endblock %}
+
+{% block content %}
+    <h2>Curricula</h2>
+    <h3><a href={% url "experiences:curriculum_create" %}>Create new Curriculum</a></h3>   
+    <hr>
+    <input type="text" placeholder="Search..." id="search" 
+        _="on keyup 
+            if the event's key is 'Escape'
+                set my value to '' 
+                trigger keyup
+            else
+                show <li/> in #curriculum_list when its textContent.toLowerCase() contains my value.toLowerCase()">  
+    <ul id="curriculum_list">
+    {% for curriculum in curriculum_list %}
+        <li>
+            <a href={% url "experiences:curriculum_detail" curriculum.pk %}>{{ curriculum }}</a> 
+    </li>
+    {% empty %}
+        <li>No Curricula yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+

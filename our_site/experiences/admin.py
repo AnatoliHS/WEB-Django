@@ -74,3 +74,9 @@ class BadgesAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'is_active')
     list_filter = ('is_active',)
     search_fields = ('title', 'description')
+
+@admin.register(Curriculum)
+class CurriculumAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('title', 'description')
