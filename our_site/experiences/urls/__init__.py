@@ -12,4 +12,5 @@ urlpatterns = [
     re_path(r'^themes/', include('experiences.urls.theme_urls')),
     re_path(r'^badges/', include('experiences.urls.badges_urls')),
     re_path(r'^pathways/', include('experiences.urls.pathways_urls')),
+    re_path(r'^curriculum/', include('experiences.urls.curriculum_urls')),
 ]
